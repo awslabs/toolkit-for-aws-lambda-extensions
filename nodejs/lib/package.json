@@ -1,0 +1,11 @@
+{
+  "name": "toolkit-for-aws-lambda-extensions",
+  "version": "0.0.1",
+  "description": "AWS Lambda Extensions Toolkit",
+  "main": "index.js",
+  "scripts": {
+    "docs": "mkdir -p ../docs && jsdoc2md **/*.js > ../docs/api.md"
+  },
+  "author": "tgpadua",
+  "license": "Apache-2.0"
+}
