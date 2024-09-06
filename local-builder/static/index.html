@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lambda Extensions Local Builder</title>
+  <link href="lib/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="container">
+  <div id="StateContainer" class="container bordered">
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td width="250px">Extension name</td>
+          <td id="ExtensionName"></td>
+        </tr>
+        <tr>
+          <td>Extension Id</td>
+          <td id="ExtensionId"></td>
+        </tr>
+        <tr>
+          <td>Extension features</td>
+          <td id="ExtensionFeatures"></td>
+        </tr>
+        <tr>
+          <td>Subscribed events</td>
+          <td id="SubscribedEvents"></td>
+        </tr>
+        <tr>
+          <td>Extensions Current state</td>
+          <td id="ExtensionsApiStateMessage"></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+          <td>Subscribed to Telemetry API</td>
+          <td id="SubscribedToTelemetryApi"></td>
+        </tr>
+        <tr>
+          <td>Subscribed telemetry types</td>
+          <td id="SubscribedTelemetryTypes"></td>
+        </tr>
+        <tr>
+          <td>Destination URI</td>
+          <td id="TelemetryDestinationUri"></td>
+        </tr>
+        <tr>
+          <td>Telemetry Current state</td>
+          <td id="TelemetryApiStateMessage"></td>
+        </tr>
+        <tr><td></td><td></td></tr>
+        <tr>
+          <td>Request Id</td>
+          <td id="RequestId"></td>
+        </tr>
+        <tr>
+          <td>Runtime Current state</td>
+          <td id="RuntimeApiStateMessage"></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div id="ControlsContainer" class="container hidden">
+    <ul class="nav nav-tabs" id="NavTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="ExtensionsApiTab" data-bs-toggle="tab"
+          data-bs-target="#ExtensionsApiTabPane" type="button" role="tab" aria-controls="ExtensionsApiTabPane"
+          aria-selected="true">Extensions API Controls</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="TelemetryApiTab" data-bs-toggle="tab" data-bs-target="#TelemetryApiTabPane"
+          type="button" role="tab" aria-controls="TelemetryApiTabPane" aria-selected="false">Telemetry API
+          Controls</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="RuntimeApiTab" data-bs-toggle="tab"
+                data-bs-target="#RuntimeApiTabPane" type="button" role="tab" aria-controls="RuntimeApiTabPane"
+                aria-selected="true">Runtime API Controls</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="FunctionTab" data-bs-toggle="tab"
+                data-bs-target="#FunctionTabPane" type="button" role="tab" aria-controls="FunctionTab"
+                aria-selected="true">Function Controls</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="NavTabsContent">
+      <!-- Start of Extensions API tab pane -->
+      <div class="tab-pane fade show active" id="ExtensionsApiTabPane" role="tabpanel"
+        aria-labelledby="ExtensionsApiTab" tabindex="0">
+        <input type="radio" class="btn-check extensions-api-event-type-select" name="ExtensionsEventTypeSelect"
+          id="InvokeEventButton" autocomplete="off" checked>
+        <label class="btn btn-outline-success" for="InvokeEventButton">INVOKE event</label>
+
+        <input type="radio" class="btn-check extensions-api-event-type-select" name="ExtensionsEventTypeSelect"
+          id="ShutdownEventButton" autocomplete="off">
+        <label class="btn btn-outline-success" for="ShutdownEventButton">SHUTDOWN event</label>
+
+        <label class="btn" id="ExtensionsApiEventJsonValidation"></label>
+
+        <textarea class="form-control" id="ExtensionsApiEventJson" rows="12"></textarea>
+        <button id="SendEventButton" type="button" class="btn btn-primary">Send</button>
+      </div>
+      <!-- End of Extensions API tab pane -->
+
+      <!-- Start of Telemetry API tab pane -->
+      <div class="tab-pane fade" id="TelemetryApiTabPane" role="tabpanel" aria-labelledby="TelemetryApiTab"
+        tabindex="1">
+        <div>Telemetry API events</div>
+        <input type="checkbox" class="btn-check" id="TAPI_SubscriptionEvent" autocomplete="off" checked>
+        <label class="btn btn-outline-success" for="TAPI_SubscriptionEvent">platform.telemetrySubscription</label>
+        <input type="checkbox" class="btn-check" id="TAPI_LogsDroppedEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_LogsDroppedEvent">platform.logsDropped</label>
+
+        <div>Init events</div>
+        <input type="checkbox" class="btn-check" id="TAPI_InitStartEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_InitStartEvent">platform.initStart</label>
+        <input type="checkbox" class="btn-check" id="TAPI_InitRuntimeDoneEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_InitRuntimeDoneEvent">platform.initRuntimeDone</label>
+        <input type="checkbox" class="btn-check" id="TAPI_InitReportEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_InitReportEvent">platform.initReport</label>
+
+        <div>Invoke events</div>
+        <input type="checkbox" class="btn-check" id="TAPI_InvokeStartEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_InvokeStartEvent">platform.start</label>
+        <input type="checkbox" class="btn-check" id="TAPI_InvokeRuntimeDoneEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_InvokeRuntimeDoneEvent">platform.runtimeDone</label>
+        <input type="checkbox" class="btn-check" id="TAPI_InvokeReportEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_InvokeReportEvent">platform.report</label>
+
+        <div>Restore events</div>
+        <input type="checkbox" class="btn-check" id="TAPI_RestoreStartEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_RestoreStartEvent">platform.restoreStart</label>
+        <input type="checkbox" class="btn-check" id="TAPI_RestoreRuntimeDoneEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_RestoreRuntimeDoneEvent">platform.restoreRuntimeDone</label>
+        <input type="checkbox" class="btn-check" id="TAPI_RestoreReportEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_RestoreReportEvent">platform.restoreReport</label>
+
+        <div>Logs events</div>
+        <input type="checkbox" class="btn-check" id="TAPI_FunctionLogEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_FunctionLogEvent">function</label>
+        <input type="checkbox" class="btn-check" id="TAPI_ExtensionLogEvent" autocomplete="off">
+        <label class="btn btn-outline-success" for="TAPI_ExtensionLogEvent">extension</label>
+
+        <hr />
+        <button id="SendTelemetryButton" type="button" class="btn btn-primary">Send</button>
+      </div>
+      <!-- End of Telemetry API tab pane -->
+
+      <!-- Start of Runtime API tab pane -->
+      <div class="tab-pane fade show" id="RuntimeApiTabPane" role="tabpanel"
+           aria-labelledby="RuntimeApiTabPane" tabindex="2">
+        <input type="radio" class="btn-check runtime-api-event-type-select" name="RuntimeInvocationNextEventTypeSelect"
+               id="RuntimeInvocationNext" autocomplete="off" checked>
+        <label class="btn btn-outline-success" for="RuntimeInvocationNext">NEXT event</label>
+        &nbsp;
+        <input type="checkbox" id="runtimeAutoResponse" autocomplete="off" checked="checked">
+        <label for="runtimeAutoResponse">Auto Response</label>
+
+        <label class="btn" id="RuntimeApiEventJsonValidation"></label>
+
+        <textarea class="form-control" id="RuntimeApiEventJson" rows="12"></textarea>
+        <button id="SendRuntimeEventButton" type="button" class="btn btn-primary">Send</button>
+
+        <br/><br/>
+        Function Response
+        <textarea class="form-control" id="RuntimeFunctionEventResponseJson" rows="12" disabled="disabled"></textarea>
+      </div>
+      <!-- End of Runtime API tab pane -->
+
+      <!-- Start of Function API tab pane -->
+      <div class="tab-pane fade show" id="FunctionTabPane" role="tabpanel"
+           aria-labelledby="FunctionTabPane" tabindex="3">
+        <input type="radio" class="btn-check function-api-event-type-select" name="FunctionInvocationTypeSelect"
+               id="FunctionInvocationNext" autocomplete="off" value="invocationNext">
+        <label class="btn btn-outline-success" for="FunctionInvocationNext">NEXT event</label>
+        <input type="radio" class="btn-check function-api-event-type-select" name="FunctionInvocationTypeSelect"
+               id="FunctionInvocationResponse" autocomplete="off" value="invocationResponse">
+        <label class="btn btn-outline-success" for="FunctionInvocationResponse">RESPONSE event</label>
+
+        <label class="btn" id="FunctionApiEventJsonValidation"></label>
+        <br/><br/>
+        <label class="form-label" for="LambdaRuntimeUrl">Lambda Runtime Host</label>
+        <input type="text" class="form-control" name="LambdaRuntimeUrl" id="LambdaRuntimeUrl" value="http://localhost:9009"/>
+        <br/>
+        <textarea class="form-control" id="FunctionApiEventJson" rows="6"></textarea>
+        <button id="SendFunctionEventButton" type="button" class="btn btn-primary">Send</button>
+        <br/><br/>
+        Response
+        <textarea class="form-control" id="FunctionEventResponseJson" rows="22" disabled="disabled"></textarea>
+      </div>
+      <!-- End of Function API tab pane -->
+    </div>
+  </div>
+
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/jquery-3.7.1.min.js"></script>
+  <script src="event-templates.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

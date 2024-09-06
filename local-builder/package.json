@@ -1,0 +1,17 @@
+{
+  "name": "lambda-extensions-local-builder",
+  "version": "0.0.1",
+  "description": "Lambda Extensions and Telemetry API simulator",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Anton Aleksandrov",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "log4js": "^6.9.1",
+    "ws": "^8.16.0"
+  }
+}

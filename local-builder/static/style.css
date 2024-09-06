@@ -1,0 +1,26 @@
+.bordered {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px 0px 10px 0px;
+  }
+
+  table td {
+    border: 0px;
+    line-height: 12px;
+  }
+
+  .table {
+    margin-bottom: 0px;
+  }
+
+  .tab-pane {
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .hidden {
+    display: none;
+  }

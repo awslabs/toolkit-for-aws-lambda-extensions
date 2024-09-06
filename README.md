@@ -1,19 +1,26 @@
 
 # Toolkit for AWS Lambda Extensions
+This toolkit offers the easiest and fastest approach to developing [AWS Lambda Extensions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-extensions.html). 
 
-Toolkit for AWS Lambda Extensions is a framework designed to streamline the development of [AWS Lambda Extensions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-extensions.html). It eliminates the _[boilerplate code](https://aws.amazon.com/what-is/boilerplate-code/)_ providing reference implementations and abstracts the service APIs complexities to let developers focus on application-specific code.
+## Local Builder
+With [Local Builder](local-builder) you can develop, test and troubleshooting your Lambda Extensions in your local environment.
 
-## Usage
+![Local Builder](assets/local-builder.png)
+
+## Library
+The library provides building blocks for developing Lambda Extensions. No more _[boilerplate code](https://aws.amazon.com/what-is/boilerplate-code/)_ when developing extensions!
+
+### Usage
 Please, check the specific version for detailed usage including:
 
 - [Node.JS](nodejs/README.md)
 
-## Architecture
+### Architecture
 Through event-driven approach you can select which event types your extension needs and bind them to your custom handlers.  
 
 ![Architecture](assets/architecture.svg)
 
-## Features Roadmap
+### Features Roadmap
 
 | Feature       | Node.js |
 |---------------|---------|
