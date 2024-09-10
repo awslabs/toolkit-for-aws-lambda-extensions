@@ -9,6 +9,6 @@
   "author": "tgpadua",
   "license": "MIT-0",
   "dependencies": {
-    "toolkit-for-aws-lambda-extensions": "file:../../lib"
+    "@aws/toolkit-for-aws-lambda-extensions": "file:../../lib"
   }
 }

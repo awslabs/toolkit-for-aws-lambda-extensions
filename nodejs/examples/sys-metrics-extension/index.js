@@ -6,7 +6,7 @@
  */
 
 const os = require('os');
-const {Extension} = require('toolkit-for-aws-lambda-extensions');
+const {Extension} = require('@aws/toolkit-for-aws-lambda-extensions');
 
 async function main() {
 

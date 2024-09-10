@@ -5,8 +5,8 @@
  *
  */
 
-const {HttpListener} = require('toolkit-for-aws-lambda-extensions/http/http-listener');
-const {HttpResponse} = require('toolkit-for-aws-lambda-extensions/http/http-response');
+const {HttpListener} = require('@aws/toolkit-for-aws-lambda-extensions/http/http-listener');
+const {HttpResponse} = require('@aws/toolkit-for-aws-lambda-extensions/http/http-response');
 
 const HOST = 'localhost';
 const PORT = 8080;

@@ -5,7 +5,7 @@
  *
  */
 
-const {Extension, TelemetryExtension} = require('toolkit-for-aws-lambda-extensions');
+const {Extension, TelemetryExtension} = require('@aws/toolkit-for-aws-lambda-extensions');
 
 const {EventDispatcher} = require('./event-dispatcher');
 

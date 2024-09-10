@@ -4,7 +4,7 @@
  * Proxy Extension that discard requests with SQL Injection (OR 1=1) and masks function response with SSN (nnn-nnn-
  */
 
-const {ProxyExtension} = require('toolkit-for-aws-lambda-extensions');
+const {ProxyExtension} = require('@aws/toolkit-for-aws-lambda-extensions');
 
 const SSN_PATTERN = /(\d{3})-(\d{3})-(\d{4})/g;
 

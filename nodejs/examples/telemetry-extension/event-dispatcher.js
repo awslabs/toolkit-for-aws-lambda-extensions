@@ -1,4 +1,4 @@
-const {HttpClient} = require('toolkit-for-aws-lambda-extensions/http/http-client');
+const {HttpClient} = require('@aws/toolkit-for-aws-lambda-extensions/http/http-client');
 
 /**
  * Buffer events in a queue and dispatch them to the specified URI when the minBatchSize is reached.
