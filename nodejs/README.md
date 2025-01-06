@@ -6,7 +6,7 @@
 ### Installation
 To add the library in your code execute:
 ```bash
-npm install aws-lambda-extensions-toolkit
+npm install @aws/aws-lambda-extensions-toolkit
 ```
 
 ### Examples
